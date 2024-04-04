@@ -174,7 +174,7 @@ export default function Search() {
           </form>
         </div>
 
-        <div className="border w-full  gap-2 p-2 m-3  rounded-lg border-slate-700  flex flex-wrap justify-center">
+        <div className="border w-full  gap-2 my-2 py-3 rounded-lg border-slate-700  flex flex-wrap justify-center">
           {loading ? (
             Array.from({ length: 20 }).map((_, index) => (
               <div
