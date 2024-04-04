@@ -174,12 +174,12 @@ export default function Search() {
           </form>
         </div>
 
-        <div className="border w-full  md:m-3 md:p-7 rounded-lg border-slate-700  flex flex-wrap justify-between">
+        <div className="border w-full  gap-2 p-2 m-3  rounded-lg border-slate-700  flex flex-wrap justify-center">
           {loading ? (
             Array.from({ length: 20 }).map((_, index) => (
               <div
                 key={index}
-                className=" flex flex-wrap justify-between border w-100 -m-0.5 rounded-lg border-slate-700 p-7 h-80 animate-pulse"
+                className=" flex flex-wrap justify-between border w-100 -m-0.5 rounded-lg border-slate-700 p-7 h-80 animate-pulse "
               >
                 <CardPlacehoderSkeleton />
               </div>
@@ -191,12 +191,12 @@ export default function Search() {
           ) : (
             listing.map((item, index) => (
               <div
-                className="p-1 border text-white border-gray-600 h-auto  flex flex-wrap justify-between  rounded-md "
+                className="p-1 border text-white border-gray-600 h-[400px] sm:w-2/2 md:w-3/2 lg:w-5/1 flex flex-wrap  rounded-md  "
                 onClick={() => navigate(`/listing/${item._id}`)}
                 key={index}
               >
                 <div
-                  className="relative my-1 flex flex-col shadow-md bg-clip-border rounded-xl w-64 card"
+                  className="relative my-1 flex flex-col shadow-md   rounded-xl w-64 hover:shadow-zinc-600 "
                   style={{ background: "#242323" }}
                 >
                   <div className="relative mx-2 mt-4   hover:scale-105 transition-all  o overflow-hidden bg-clip-border rounded-xl h-36 cursor-pointer hover:cursor-pointer">
@@ -206,7 +206,7 @@ export default function Search() {
                         "https://as1.ftcdn.net/v2/jpg/02/48/42/64/1000_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg"
                       }
                       alt="placeholder-image"
-                      className="object-fill w-full h-full"
+                      className="object-contain w-full h-full"
                     />
                   </div>
                   <div className="p-6">
@@ -249,7 +249,7 @@ export default function Search() {
 
                   <div className="p-6 pt-0">
                     <button
-                      className="align-middle border select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg shadow-gray-900/10 hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85] active:shadow-none block w-full bg-blue-gray-900/10 text-white shadow-none  hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100"
+                      className="align-middle border select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg shadow-gray-900/10 hover:shadow-gray-900/20 focus:opacity-[0.85] active:opacity-[0.85] active:shadow-none block w-full bg-blue-gray-900/10 text-white shadow-none  hover:scale-105 hover:shadow-none focus:scale-105 focus:shadow-none active:scale-100 "
                       type="button"
                       onClick={() => navigate(`/listing/${item._id}`)}
                     >
