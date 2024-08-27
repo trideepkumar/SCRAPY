@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../api/axiosInstance";
 import { motion, useAnimation } from "framer-motion";
@@ -58,36 +57,39 @@ export default function Home() {
         </p>
       </div>
 
-  <Link to={"/search"}>
-  <div className="flex justify-center drop-shadow-2xl rounded-lg sm:p-0 sm:m-0 xs:p-0 xs:m-0 lg:m-10 lg:p-10 md:m-10 md:p-10">
-    <div className="flex flex-wrap justify-center">
-      {category.map((item, index) => (
-        <Card
-          key={item.id}
-          className="max-w-[125px] m-3 hover:scale-105 shadow-lg duration-1000"
-          style={{ background: "#363636" }}
-        >
-          <CardHeader
-            floated={false}
-            className="h-12 w-12 mx-10 mb-0 items-center"
-          >
-            <img src={item.icon} alt="profile-picture" className="object-contain" />
-          </CardHeader>
-          <CardBody className="text-center">
-            <Typography
-              variant="h4"
-              color="blue-gray"
-              className="mb-2 text-white text-sm font-bold"
-            >
-              {item.name}
-            </Typography>
-          </CardBody>
-        </Card>
-      ))}
-    </div>
-  </div>
-</Link>
-
+      <Link to={"/search"}>
+        <div className="flex justify-center drop-shadow-2xl rounded-lg sm:p-0 sm:m-0 xs:p-0 xs:m-0 lg:m-10 lg:p-10 md:m-10 md:p-10">
+          <div className="flex flex-wrap justify-center">
+            {category.map((item, index) => (
+              <Card
+                key={item.id}
+                className="max-w-[125px] m-3 hover:scale-105 shadow-lg duration-1000"
+                style={{ background: "#363636" }}
+              >
+                <CardHeader
+                  floated={false}
+                  className="h-12 w-12 mx-10 mb-0 items-center"
+                >
+                  <img
+                    src={item.icon}
+                    alt="profile-picture"
+                    className="object-contain"
+                  />
+                </CardHeader>
+                <CardBody className="text-center">
+                  <Typography
+                    variant="h4"
+                    color="blue-gray"
+                    className="mb-2 text-white text-sm font-bold"
+                  >
+                    {item.name}
+                  </Typography>
+                </CardBody>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Link>
 
       <div className="text-center p-5 text-3xl font-bold rounded-xl  m-7 items-center  animate-bounce">
         <p className="text-white m-5 ">
@@ -95,9 +97,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div
-        className="flex justify-between shadow-2xl p-5 m-5 rounded-lg overflow-x-auto flex-wrap sm:flex-nowrap  "
-      >
+      <div className="flex justify-between shadow-2xl p-5 m-5 rounded-lg overflow-x-auto flex-wrap sm:flex-nowrap  ">
         {loading ? (
           Array.from({ length: 10 }).map((_, index) => (
             <div
@@ -111,8 +111,6 @@ export default function Home() {
           <div className="flex justify-center mx-[540px] sm:[100px] items-center text-white text-2xl overflow-auto font-bold shadow-lg p-4 border rounded-lg">
             NO DATA AVAILABLE
           </div>
-        
-
         ) : (
           <motion.div
             className="flex hover:scroll"
@@ -194,9 +192,6 @@ export default function Home() {
           </motion.div>
         )}
       </div>
-
     </div>
   );
 }
-
-

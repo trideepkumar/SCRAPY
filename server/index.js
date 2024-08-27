@@ -19,7 +19,7 @@ app.use(cookieParser())
 
 app.use(cors({
   origin: 'https://scrapyy-three.vercel.app',
-  // origin: 'http://localhost:5173',
+  // origin: ' http://localhost:5173',
   credentials: true, 
 }));
 
@@ -41,6 +41,7 @@ app.use('/api/category',category)
 
 
 app.use(express.static(path.join(__dirname, '../client/dist')))
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist', 'index.html'))
 })

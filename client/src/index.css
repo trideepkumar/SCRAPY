@@ -1,32 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-
-body{
-    background-color: #242424;
-    font-family: "Cabin", sans-serif;
-    font-optical-sizing: auto;
-    font-weight:500;
-    font-style: normal;
+body {
+  background-color: #242424;
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
-
-
-p, span,label, h1, h2, h3, h4, h5, h6, a{
-    color: rgb(188, 188, 188);
+p,
+span,
+label,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  color: rgb(188, 188, 188);
 }
 /* Hide the scrollbar */
 ::-webkit-scrollbar {
-    width: 0px;
+  width: 0px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 /* Firefox */
 * {
-    scrollbar-width: none;
+  scrollbar-width: none;
 }

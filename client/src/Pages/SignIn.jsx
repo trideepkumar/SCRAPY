@@ -64,7 +64,7 @@ export function SignIn() {
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Demo User : bob@gmail.com"
           className="border p-3 rounded-lg"
           id="email"
           onChange={handleChange}
@@ -72,7 +72,7 @@ export function SignIn() {
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Demo Pass : 12345678"
           className="border p-3 rounded-lg"
           id="password"
           onChange={handleChange}
@@ -94,6 +94,7 @@ export function SignIn() {
         <Link to={"/sign-up"} className="text-blue-300">
           Sign up
         </Link>
+        
       </div>
 
       {error && <p className="text-red-500 mt-5 text-center">{error}</p>}
