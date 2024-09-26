@@ -12,13 +12,12 @@ const HeaderHome = () => (
     <div className="flex justify-between items-center h-full">
       <div className="w-1/2">
         <h1 className="text-4xl font-bold text-gray-900">
-          Simple and <span className="text-orange-600">Awesome</span> Heading Text Here
+          Search your<span className="text-orange-600">own needs</span> here at Scrapy....
         </h1>
         <p className="text-gray-700 mt-4">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
           Lorem Ipsum has been the industry's standard dummy text.
         </p>
-        {/* Search Bar */}
         <div className="mt-6 flex">
           <input
             type="text"
@@ -47,7 +46,7 @@ const HeaderHome = () => (
       {/* Image Section */}
       <div className="w-1/2 flex justify-end">
         <img
-          src='src/assets/scrapy_home.jpg'
+          src='src/assets/scrapy_dash_2.png'
           alt="Laptop with Ad"
           className="w-4/5 rounded-lg"
         />
