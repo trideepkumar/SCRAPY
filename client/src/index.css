@@ -4,7 +4,8 @@
 @tailwind utilities;
 
 body {
-  background-color: #242424;
+  background: linear-gradient(to right, #f0fdf4, #ccfbf1);
+  color: black;
   font-family: "Dosis", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;

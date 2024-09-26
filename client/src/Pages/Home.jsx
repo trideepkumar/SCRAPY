@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../api/axiosInstance";
 import { motion, useAnimation } from "framer-motion";
-import { Card, CardHeader, CardBody, Typography } from "@material-tailwind/react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+} from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import CardPlacehoderSkeleton from "../components/Placeholders/CardPlacehoderSkeleton";
+import CategoryCard from "../components/Cards/CategoryCard";
 
 // Header component
 const HeaderHome = () => (
-  <div className="relative bg-gradient-to-r from-green-50 to-teal-200 p-10 rounded-lg shadow-lg h-[90vh]">
+  <div className="relative bg-gradient-to-r from-green-50 to-teal-200 p-10   h-[90vh]">
     <div className="flex justify-between items-center h-full">
       <div className="w-1/2">
         <h1 className="text-4xl font-bold text-gray-900">
-          Search your<span className="text-orange-600">own needs</span> here at Scrapy....
+          Search your<span className="text-orange-600">own needs</span> here at
+          Scrapy....
         </h1>
         <p className="text-gray-700 mt-4">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-          Lorem Ipsum has been the industry's standard dummy text.
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text.
         </p>
         <div className="mt-6 flex">
           <input
@@ -46,7 +53,7 @@ const HeaderHome = () => (
       {/* Image Section */}
       <div className="w-1/2 flex justify-end">
         <img
-          src='src/assets/scrapy_dash_2.png'
+          src="src/assets/scrapy_dash_2.png"
           alt="Laptop with Ad"
           className="w-4/5 rounded-lg"
         />
@@ -55,40 +62,49 @@ const HeaderHome = () => (
   </div>
 );
 
-
 // Category component
-const CategoryHome = ({ category, loading }) => (
-  <Link to="/search">
-    <div className="flex justify-center drop-shadow-2xl rounded-lg sm:p-0 sm:m-0 xs:p-0 xs:m-0 lg:m-10 lg:p-10 md:m-10 md:p-10">
-      <div className="flex flex-wrap justify-center">
-        {loading
-          ? Array.from({ length: 6 }).map((_, index) => (
-              <CardPlacehoderSkeleton key={index} />
-            ))
-          : category.map((item) => (
-              <Card
-                key={item.id}
-                className="max-w-[125px] m-3 hover:scale-105 shadow-lg duration-1000"
-                style={{ background: "#363636" }}
-              >
-                <CardHeader floated={false} className="h-12 w-12 mx-10 mb-0 items-center">
-                  <img src={item.icon} alt="category-icon" className="object-contain" />
-                </CardHeader>
-                <CardBody className="text-center">
-                  <Typography
-                    variant="h4"
-                    color="blue-gray"
-                    className="mb-2 text-white text-sm font-bold"
-                  >
-                    {item.name}
-                  </Typography>
-                </CardBody>
-              </Card>
-            ))}
+
+const CategoryHome = ({ category, loading }) => {
+  const firstRowItems = category.slice(0, 6); // First 6 cards
+  const secondRowItems = category.slice(6, 11); // Next 5 cards
+
+  return (
+    <Link to="/search">
+      <div className="flex flex-col items-center w-full p-4 sm:p-6 md:p-8 lg:p-10 bg-gradient-to-r from-teal-50 to-green-200">
+        {/* First Row: 6 items */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 justify-center w-full">
+          {loading
+            ? Array.from({ length: 6 }).map((_, index) => (
+                <CardPlacehoderSkeleton key={index} />
+              ))
+            : firstRowItems.map((item) => (
+                <CategoryCard 
+                  key={item.id} 
+                  item={item} 
+                  className="w-full h-40 max-w-[150px] flex flex-col items-center" // Set height and max width
+                />
+              ))}
+        </div>
+
+        {/* Second Row: 5 items */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 justify-center w-full mt-4">
+          {loading
+            ? Array.from({ length: 5 }).map((_, index) => (
+                <CardPlacehoderSkeleton key={index} />
+              ))
+            : secondRowItems.map((item) => (
+                <CategoryCard 
+                  key={item.id} 
+                  item={item} 
+                  className="w-full h-40 max-w-[150px] flex flex-col items-center" // Same height and max width for consistency
+                />
+              ))}
+        </div>
       </div>
-    </div>
-  </Link>
-);
+    </Link>
+  );
+};
+
 
 // Listing component
 const ListingHome = ({ listing, loading, controls }) => {
